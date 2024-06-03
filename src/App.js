@@ -1,16 +1,20 @@
 import './App.css';
 import Layout from './components/layout/Layout';
-import { ThemeProvider } from '@mui/material/styles';
+import store from './store/index';
+import { Provider } from 'react-redux';
 import darkTheme from './theme';
+import { ThemeProvider } from '@mui/material/styles';
 
 function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
-      <div className="App">
-        <Layout />
-      </div>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={darkTheme}>
+        <div className="App">
+          <Layout />
+        </div>
+      </ThemeProvider>
+    </Provider>
   );
-}
+};
 
 export default App;

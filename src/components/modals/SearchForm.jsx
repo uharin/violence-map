@@ -13,8 +13,7 @@ const SearchForm = () => {
     setCityState(searchValue);
     const suggestions = await getAutoLocation(searchValue);
     setOptions(suggestions || []);
-    console.log(suggestions);
-  }, 2000), []);
+  }, 1300), []);
 
   const handleCityStateChange = async (value) => {
     setCityState(value);
