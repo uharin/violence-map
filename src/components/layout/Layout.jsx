@@ -27,19 +27,15 @@ function Layout() {
 
   return (
     <div>
-      <Header open={open} setIsOpen={handleDrawer}/>
+      <Header open={open} setIsOpen={handleDrawer} />
       <ContentWrapper>
-        <Sidebar
-          open={open}
-          setIsOpen={handleDrawer}
-          setOpenModal={handleModal}
-        />
+        <Sidebar open={open} setIsOpen={handleDrawer} setOpenModal={handleModal} />
         <Main />
       </ContentWrapper>
       <Footer />
-      <SearchModal open={openModal} setOpenModal={handleModal}/>
+      <SearchModal open={openModal} setOpenModal={handleModal} />
     </div>
-  )
+  );
 }
 
 export default Layout;

@@ -13,14 +13,21 @@ const fetchJson = async (url, options) => {
   try {
     responseJSON = await response.json();
   } catch (ignore) {
-    responseJSON = { status: response.status, message: response.statusText };
+    responseJSON = {
+      status: response.status,
+      message: response.statusText,
+    };
   }
 
   if (!response.ok) {
     const message = responseJSON.message || responseJSON.code || response.statusText;
     const error = new Error(message);
 
-    error.response = { ...responseJSON, status: response.status, statusText: response.statusText };
+    error.response = {
+      ...responseJSON,
+      status: response.status,
+      statusText: response.statusText,
+    };
     throw error;
   }
 
@@ -42,11 +49,16 @@ export const fetchWithTimeout = async (url, options, timeout = 30000) => {
   return response;
 };
 
-
-export const getRequest = async ({ url, timeout }) => fetchWithTimeout(url, {
-  method: 'GET',
-  headers: createHeaders(),
-}, timeout);
+export const getRequest = async ({ url, timeout }) => {
+  fetchWithTimeout(
+    url,
+    {
+      method: 'GET',
+      headers: createHeaders(),
+    },
+    timeout,
+  );
+};
 
 // CSRF Token Management
 let csrfToken = '';
@@ -55,10 +67,14 @@ export const setCsrfToken = (token) => {
   csrfToken = token;
 };
 
-export const postRequest = async ({
-  url, body, timeout,
-}) => fetchWithTimeout(url, {
-  method: 'POST',
-  headers: createHeaders({ 'X-CSRF-Token': csrfToken }),
-  body: JSON.stringify(body),
-}, timeout);
+export const postRequest = async ({ url, body, timeout }) => {
+  fetchWithTimeout(
+    url,
+    {
+      method: 'POST',
+      headers: createHeaders({ 'X-CSRF-Token': csrfToken }),
+      body: JSON.stringify(body),
+    },
+    timeout,
+  );
+};

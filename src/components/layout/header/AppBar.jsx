@@ -26,10 +26,7 @@ function MenuAppBar({ setIsOpen, open }) {
   };
 
   return (
-    <AppBar
-      open={open}
-      position="fixed"
-    >
+    <AppBar open={open} position="fixed">
       <Toolbar>
         <IconButton
           edge="start"
@@ -54,19 +51,14 @@ function MenuAppBar({ setIsOpen, open }) {
           >
             <AccountCircle />
           </IconButton>
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
+          <Menu id="menu-appbar" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
             <MenuItem onClick={handleClose}>Profile</MenuItem>
             <MenuItem onClick={handleClose}>My account</MenuItem>
           </Menu>
         </div>
       </Toolbar>
     </AppBar>
-  )
+  );
 }
 
 export default MenuAppBar;

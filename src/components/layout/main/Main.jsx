@@ -13,7 +13,7 @@ function Main() {
     <StyledMain>
       <Map />
     </StyledMain>
-  )
+  );
 }
 
 export default Main;

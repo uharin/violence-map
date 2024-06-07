@@ -16,6 +16,6 @@ function App() {
       </ThemeProvider>
     </Provider>
   );
-};
+}
 
 export default App;

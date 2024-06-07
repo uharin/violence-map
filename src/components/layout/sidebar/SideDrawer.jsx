@@ -13,19 +13,17 @@ import LocationSearchingIcon from '@mui/icons-material/LocationSearching';
 import { styled } from '@mui/material/styles';
 import sideDrawerStyles from './sideDrawerStyles';
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ open }) => ({
-    ...sideDrawerStyles.drawer,
-    ...(open && {
-      ...sideDrawerStyles.openedMixin,
-      '& .MuiDrawer-paper': sideDrawerStyles.openedMixin,
-    }),
-    ...(!open && {
-      ...sideDrawerStyles.closedMixin,
-      '& .MuiDrawer-paper': sideDrawerStyles.closedMixin,
-    }),
+const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(({ open }) => ({
+  ...sideDrawerStyles.drawer,
+  ...(open && {
+    ...sideDrawerStyles.openedMixin,
+    '& .MuiDrawer-paper': sideDrawerStyles.openedMixin,
   }),
-);
+  ...(!open && {
+    ...sideDrawerStyles.closedMixin,
+    '& .MuiDrawer-paper': sideDrawerStyles.closedMixin,
+  }),
+}));
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   ...sideDrawerStyles.drawerHeader,
@@ -35,7 +33,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 function SideDrawer({ open, setIsOpen, setOpenModal }) {
-
   return (
     <Drawer
       variant="permanent"

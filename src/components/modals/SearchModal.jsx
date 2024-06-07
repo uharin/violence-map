@@ -26,7 +26,7 @@ function SearchModal({ open, setOpenModal }) {
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-      <IconButton
+        <IconButton
           aria-label="close"
           onClick={handleClose}
           sx={{

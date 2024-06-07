@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialMapState = {
   coordinates: {
@@ -7,14 +7,13 @@ const initialMapState = {
     zoom: 7,
     pitch: 0,
     bearing: 0,
-  }
+  },
 };
 
 const mapSlice = createSlice({
   name: 'map',
   initialState: initialMapState,
-  reducers: {
-  }
+  reducers: {},
 });
 
 export default mapSlice.reducer;
