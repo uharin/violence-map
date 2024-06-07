@@ -1,9 +1,10 @@
 import './App.css';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { ThemeProvider } from '@mui/material/styles';
 import Layout from './components/layout/Layout';
 import store from './store/index';
-import { Provider } from 'react-redux';
 import darkTheme from './theme';
-import { ThemeProvider } from '@mui/material/styles';
 
 function App() {
   return (

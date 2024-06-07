@@ -1,6 +1,6 @@
 import React from 'react';
-import Map from '../../map/Map';
 import { styled } from 'styled-components';
+import Map from '../../map/Map';
 
 const StyledMain = styled.main`
   background-color: #000000;
@@ -8,12 +8,12 @@ const StyledMain = styled.main`
   width: 100%;
 `;
 
-const Main = () => {
-  return ( 
+function Main() {
+  return (
     <StyledMain>
       <Map />
     </StyledMain>
   )
-};
+}
 
 export default Main;

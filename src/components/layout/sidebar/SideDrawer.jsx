@@ -14,7 +14,7 @@ import { styled } from '@mui/material/styles';
 import sideDrawerStyles from './sideDrawerStyles';
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
+  ({ open }) => ({
     ...sideDrawerStyles.drawer,
     ...(open && {
       ...sideDrawerStyles.openedMixin,
@@ -34,7 +34,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const SideDrawer = ({ open, setIsOpen, setOpenModal }) => {
+function SideDrawer({ open, setIsOpen, setOpenModal }) {
 
   return (
     <Drawer
@@ -74,6 +74,6 @@ const SideDrawer = ({ open, setIsOpen, setOpenModal }) => {
       </List>
     </Drawer>
   );
-};
+}
 
 export default SideDrawer;

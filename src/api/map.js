@@ -10,13 +10,12 @@ export const getAutoLocation = async (value) => {
   try {
       const response = await fetchWithTimeout(`${MAPBOX_AUTOLOCATION_URL}/${encodeURIComponent(value)}.json?access_token=${MAPBOX_TOKEN}&types=place&autocomplete=true`);
 
-      const places = response.features?.map((place) => place.place_name);
-      console.log(places);
+      const places = response.features.map((place) => place.place_name);
       return places;
     } catch (error) {
-      console.error('Error fetching autocomplete suggestions:', error);
+      return new Error(error);
     }
-}
+};
 // export const getMap = async (start, end) => {
 //   const response = await fetchWithTimeout(mapBoxUrl(start, end));
 //   console.log(response);

@@ -13,16 +13,16 @@ const ContentWrapper = styled.div`
   height: 100vh;
 `;
 
-const Layout = () => {
+function Layout() {
   const [open, setOpen] = useState(true);
   const [openModal, setOpenModal] = useState(false);
 
   const handleDrawer = () => {
-    setOpen((open) => !open);
+    setOpen((newOpen) => !newOpen);
   };
 
   const handleModal = () => {
-    setOpenModal((openModal) => !openModal);
+    setOpenModal((newOpenModal) => !newOpenModal);
   };
 
   return (
@@ -32,7 +32,7 @@ const Layout = () => {
         <Sidebar
           open={open}
           setIsOpen={handleDrawer}
-          setOpenModal={handleModal} 
+          setOpenModal={handleModal}
         />
         <Main />
       </ContentWrapper>
@@ -40,6 +40,6 @@ const Layout = () => {
       <SearchModal open={openModal} setOpenModal={handleModal}/>
     </div>
   )
-};
+}
 
 export default Layout;

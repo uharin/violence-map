@@ -1,29 +1,25 @@
 import React, { useState } from 'react';
 import ReactMapGL from 'react-map-gl';
+import { useSelector } from 'react-redux';
 import { MAPBOX_TOKEN } from '../../api/map';
 
-const Map = () => {
-  const [viewport, setViewport] = useState({
-    latitude: 40.4406,
-    longitude: -79.9959,
-    zoom: 7,
-    pitch: 0,
-    bearing: 0,
-  });
+function Map() {
+  const coordinates = useSelector((state) => state.map.coordinates);
+
+  const [viewport, setViewport] = useState({ ...coordinates });
 
   return (
-    <div style={{height: '100%', width: '100%'}}>
+    <div style={{ height: '100%', width: '100%' }}>
       <ReactMapGL
         {...viewport}
         mapboxAccessToken={MAPBOX_TOKEN}
         style={{ width: '100%' }}
-        mapStyle='mapbox://styles/uharin/clwo9xmy300em01qe98df2psy'
-        onMove={evt => setViewport(evt.viewState)}
+        mapStyle="mapbox://styles/uharin/clwo9xmy300em01qe98df2psy"
+        onMove={(evt) => setViewport(evt.viewState)}
         projection="globe"
-      >
-      </ReactMapGL>
+      />
     </div>
-  )
-};
+  );
+}
 
 export default Map;

@@ -12,4 +12,3 @@ export const appBarStyles = {
   },
 };
 
-export default appBarStyles;

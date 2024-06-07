@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchForm from './SearchForm';
 import { Modal, Box, Typography, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import SearchForm from './SearchForm';
 
 const style = {
   position: 'absolute',
@@ -15,7 +15,7 @@ const style = {
   p: 4,
 };
 
-const SearchModal = ({ open, setOpenModal }) => {
+function SearchModal({ open, setOpenModal }) {
   const handleClose = () => setOpenModal();
 
   return (
@@ -50,6 +50,6 @@ const SearchModal = ({ open, setOpenModal }) => {
       </Box>
     </Modal>
   );
-};
+}
 
 export default SearchModal;

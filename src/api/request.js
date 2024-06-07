@@ -29,11 +29,13 @@ const fetchJson = async (url, options) => {
 
 export const fetchWithTimeout = async (url, options, timeout = 30000) => {
   let timeoutId;
-  const timeoutPromise = new Promise((_, reject) => 
-    timeoutId = setTimeout(() => reject(new Error('Request timed out')), timeout)
-  );
+  const timeoutPromise = new Promise((_resolve, reject) => {
+    timeoutId = setTimeout(() => {
+      reject(new Error('Request timed out'));
+    }, timeout);
+  });
 
-  let fetchPromise = fetchJson(url, options);
+  const fetchPromise = fetchJson(url, options);
 
   const response = await Promise.race([timeoutPromise, fetchPromise]);
   clearTimeout(timeoutId);

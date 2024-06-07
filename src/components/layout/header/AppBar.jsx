@@ -10,11 +10,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
 import { styled } from '@mui/material/styles';
-import appBarStyles from './appBarStyles';
+import { appBarStyles } from './appBarStyles';
 
 const AppBar = styled(MuiAppBar)(appBarStyles.root);
 
-const MenuAppBar = ({ setIsOpen, open }) => {
+function MenuAppBar({ setIsOpen, open }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleMenu = (event) => {
@@ -67,6 +67,6 @@ const MenuAppBar = ({ setIsOpen, open }) => {
       </Toolbar>
     </AppBar>
   )
-};
+}
 
 export default MenuAppBar;

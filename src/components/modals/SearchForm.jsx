@@ -1,25 +1,29 @@
 import React, { useState, useCallback } from 'react';
 import { Box, Button, TextField, Typography, Autocomplete } from '@mui/material';
-import { getAutoLocation } from '../../api/map';
 import _debounce from 'lodash/debounce';
+import { getAutoLocation } from '../../api/map';
 
-const SearchForm = () => {
+function SearchForm() {
   const [cityState, setCityState] = useState('');
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [options, setOptions] = useState([]);
 
-  const debouncedSearch = useCallback(_debounce(async (searchValue) => {
-    setCityState(searchValue);
-    const suggestions = await getAutoLocation(searchValue);
-    setOptions(suggestions || []);
-  }, 1300), []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedSearch = useCallback(
+    _debounce(async (searchValue) => {
+      setCityState(searchValue);
+      const suggestions = await getAutoLocation(searchValue);
+      setOptions(suggestions || []);
+    }, 1300),
+    [],
+  );
 
   const handleCityStateChange = async (value) => {
     setCityState(value);
     debouncedSearch(value);
   };
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -40,20 +44,20 @@ const SearchForm = () => {
         onChange={(e, value) => setCityState(value)}
         freeSolo
         renderInput={(params) => (
-        <TextField
-          {...params}
-          label="City/State"
-          value={cityState}
-          onChange={(e) => handleCityStateChange(e.target.value)}
-          fullWidth
-        />
+          <TextField
+            {...params}
+            label="City/State"
+            value={cityState}
+            onChange={(e) => handleCityStateChange(e.target.value)}
+            fullWidth
+          />
         )}
       />
       <Typography
         sx={{
-          color: "text.secondary",
-          textAlign: "center",
-          width: "100%"
+          color: 'text.secondary',
+          textAlign: 'center',
+          width: '100%',
         }}
         component="p"
       >
@@ -76,6 +80,6 @@ const SearchForm = () => {
       </Button>
     </Box>
   );
-};
+}
 
 export default SearchForm;
