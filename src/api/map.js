@@ -1,5 +1,6 @@
 import { fetchWithTimeout } from './request';
 
+// eslint-disable-next-line no-undef
 export const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_API_TOKEN;
 
 const MAPBOX_AUTOLOCATION_URL = 'https://api.mapbox.com/geocoding/v5/mapbox.places';

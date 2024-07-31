@@ -1,5 +1,8 @@
-// Helper function to create default headers
+/* eslint-disable no-undef */
 
+const BASE_URL = '/api/v1';
+
+// Helper function to create default headers
 const createHeaders = (additionalHeaders = {}) => ({
   'Content-Type': 'application/json',
   'X-Requested-With': 'XMLHttpRequest',
@@ -7,7 +10,8 @@ const createHeaders = (additionalHeaders = {}) => ({
 });
 
 const fetchJson = async (url, options) => {
-  const response = await fetch(url, options);
+  const finalUrl = `${BASE_URL}${url}`;
+  const response = await fetch(finalUrl, options);
   let responseJSON;
 
   try {
