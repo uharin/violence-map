@@ -14,7 +14,7 @@ import { appBarStyles } from './appBarStyles';
 
 const AppBar = styled(MuiAppBar)(appBarStyles.root);
 
-function MenuAppBar({ setIsOpen, open }) {
+const MenuAppBar = ({ setIsOpen, open }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleMenu = (event) => {

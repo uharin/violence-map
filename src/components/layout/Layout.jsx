@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
 import Header from './header/AppBar';
 import Sidebar from './sidebar/SideDrawer';
 import Main from './main/Main';
-import Footer from './footer/Footer';
+// import Footer from './footer/Footer';
+import { getAllCases } from '../../api/cases';
 import SearchModal from '../modals/SearchModal';
 
 const ContentWrapper = styled.div`
@@ -13,7 +14,20 @@ const ContentWrapper = styled.div`
   height: 100vh;
 `;
 
-function Layout() {
+const Layout = () => {
+  useEffect(() => {
+    const fetchCases = async () => {
+      try {
+        const result = await getAllCases();
+        console.log(result);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchCases(); // Call the async function
+  }, []); // Empty dependency array means this effect runs once on mount
+
   const [open, setOpen] = useState(true);
   const [openModal, setOpenModal] = useState(false);
 
@@ -32,7 +46,7 @@ function Layout() {
         <Sidebar open={open} setIsOpen={handleDrawer} setOpenModal={handleModal} />
         <Main />
       </ContentWrapper>
-      <Footer />
+      {/* <Footer /> */}
       <SearchModal open={openModal} setOpenModal={handleModal} />
     </div>
   );

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { styled } from 'styled-components';
 import Map from '../../map/Map';
+import { getAllCases } from '../../../api/cases'
 
 const StyledMain = styled.main`
   background-color: #000000;
@@ -8,7 +9,7 @@ const StyledMain = styled.main`
   width: 100%;
 `;
 
-function Main() {
+const Main = () => {
   return (
     <StyledMain>
       <Map />

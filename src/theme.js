@@ -6,17 +6,15 @@ const darkTheme = createTheme({
     primary: { main: '#4CAF50' },
     secondary: { main: '#9E9E9E' },
     background: {
-      default: '#121212', // Dark background
-      paper: '#1E1E1E', // Slightly lighter background for paper elements
+      default: '#121212',
+      paper: '#1E1E1E',
     },
     text: {
-      primary: '#E0E0E0', // Light gray text on dark background
-      secondary: '#BDBDBD', // Slightly darker gray for secondary text
+      primary: '#E0E0E0',
+      secondary: '#BDBDBD',
     },
-    divider: 'rgba(255, 255, 255, 0.12)', // Light divider color on dark background
+    divider: 'rgba(255, 255, 255, 0.12)',
   },
 });
-
-console.log(darkTheme);
 
 export default darkTheme;

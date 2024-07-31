@@ -2,7 +2,6 @@ import React from 'react';
 import MuiDrawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import IconButton from '@mui/material/IconButton';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -32,7 +31,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-function SideDrawer({ open, setIsOpen, setOpenModal }) {
+const SideDrawer = ({ open, setIsOpen, setOpenModal }) => {
   return (
     <Drawer
       variant="permanent"
@@ -40,9 +39,7 @@ function SideDrawer({ open, setIsOpen, setOpenModal }) {
       open={open}
     >
       <DrawerHeader className={sideDrawerStyles.drawerHeader}>
-        <IconButton onClick={setIsOpen}>
-          <ChevronLeftIcon />
-        </IconButton>
+        <IconButton onClick={setIsOpen} />
       </DrawerHeader>
       <List>
         {['Search', 'Reports'].map((text, index) => (

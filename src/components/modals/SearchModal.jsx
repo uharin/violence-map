@@ -15,7 +15,7 @@ const style = {
   p: 4,
 };
 
-function SearchModal({ open, setOpenModal }) {
+const SearchModal = ({ open, setOpenModal }) => {
   const handleClose = () => setOpenModal();
 
   return (
